@@ -1,0 +1,13 @@
+Living Room:18
+Living Room:22
+Living Room:20
+Drawing Room:21
+Drawing Room:22
+Bed Room:14
+Bed Room:16
+Kitchen:33
+Kitchen:32
+Kitchen:34
+Living Room:20
+Drawing Room:22
+Kitchen:34

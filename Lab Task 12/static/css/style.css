@@ -1,0 +1,503 @@
+/* ========================================
+   CSS VARIABLES FOR THEME MANAGEMENT
+   ======================================== */
+:root {
+    /* Light Theme Colors */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-muted: #adb5bd;
+    --border-color: #dee2e6;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-lg: rgba(0, 0, 0, 0.15);
+    
+    /* Brand Colors */
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --success-color: #10b981;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    
+    /* Gradient */
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-alt: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-card: #1c2128;
+    --text-primary: #e6edf3;
+    --text-secondary: #8d96a0;
+    --text-muted: #6e7681;
+    --border-color: #30363d;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --shadow-lg: rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+/* ========================================
+   THEME TOGGLE BUTTON
+   ======================================== */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px var(--shadow);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 6px 20px var(--shadow-lg);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+header h1 {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+header .lead {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+/* Prediction Results Heading */
+#resultsSection h3 {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
+
+/* ========================================
+   MAIN CARD
+   ======================================== */
+.main-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.main-card:hover {
+    box-shadow: 0 10px 40px var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+.form-label {
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.form-control {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: var(--bg-card);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+    color: var(--text-primary);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.form-text {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Select Dropdowns */
+.form-select {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    background: var(--bg-card);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+    color: var(--text-primary);
+}
+
+.form-select option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* ========================================
+   GENDER BUTTON GROUP
+   ======================================== */
+.btn-group .btn-outline-primary {
+    border: 2px solid #667eea;
+    color: #667eea;
+    background: var(--bg-secondary);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-group .btn-outline-primary i {
+    color: #764ba2;
+}
+
+.btn-group .btn-outline-primary:hover {
+    background: var(--gradient);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+.btn-check:checked + .btn-outline-primary {
+    background: var(--gradient);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    font-weight: 500;
+}
+
+/* ========================================
+   PREDICT BUTTON
+   ======================================== */
+.predict-btn {
+    background: var(--gradient);
+    border: none;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.predict-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+}
+
+.predict-btn:hover::before {
+    left: 100%;
+}
+
+.predict-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.predict-btn:active {
+    transform: translateY(-1px);
+}
+
+.predict-btn.loading .button-text {
+    opacity: 0;
+}
+
+.predict-btn.loading .spinner-border {
+    display: inline-block !important;
+}
+
+/* ========================================
+   ALERT STYLES
+   ======================================== */
+.alert {
+    border-radius: 12px;
+    border: none;
+    animation: slideIn 0.3s ease;
+}
+
+.alert-success {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+    border-left: 4px solid #059669 !important;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.alert-success i {
+    color: #ffffff !important;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   RESULTS SECTION
+   ======================================== */
+.results-section {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Result Card */
+.result-card {
+    background: var(--gradient);
+    border-radius: 16px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.result-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.result-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.result-details .badge {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Info Cards */
+.info-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+.info-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.info-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.info-value {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   CHART CONTAINER
+   ======================================== */
+.chart-container {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+.progress {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: var(--gradient);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .result-value {
+        font-size: 2.5rem;
+    }
+    
+    .main-card {
+        border-radius: 15px;
+    }
+    
+    .card-body {
+        padding: 1.5rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .result-value {
+        font-size: 2rem;
+    }
+    
+    .btn-group .btn-outline-primary {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .info-value {
+        font-size: 1.1rem;
+    }
+}
+
+/* ========================================
+   LOADING SPINNER ANIMATION
+   ======================================== */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   CUSTOM SCROLLBAR
+   ======================================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.d-none {
+    display: none !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 30px var(--shadow-lg) !important;
+}
